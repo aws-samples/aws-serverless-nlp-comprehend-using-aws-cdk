@@ -169,7 +169,7 @@ sh script/simulation/create_user.sh [aws profile name] [new user id, for example
 ```
 
 where
- [cognito user pool id] is `OutputUserPoolId` in `script/output/ApiGatewayStack.json`
+ [cognito user pool id] is `OutputUserPoolId` in `script/output/ApiGatewayStack.json`.
 
 This is Password Policy in Cognito in [api-gateway-stack.ts](infra/stack/api-gateway-stack.ts):
 
@@ -193,8 +193,8 @@ python3 script/simulation/request_reviews.py --profile [aws profile name] --url 
 ```
 
 where
- [APIGatewaty URL] is `OutputRestApiUrl` in `script/output/ApiGatewayStack.json`:
- [cognito user pool client id] is `OutputUserPoolClientId` in `script/output/ApiGatewayStack.json`:
+ [APIGatewaty URL] is `OutputRestApiUrl` in `script/output/ApiGatewayStack.json`.
+ [cognito user pool client id] is `OutputUserPoolClientId` in `script/output/ApiGatewayStack.json`.
 
 ### Monitoring Dashboard
 
@@ -222,20 +222,26 @@ These quries will create the following tables in Athena. We will use sentiment-t
 
 ### QuickSight Dashboard
 
-Our CDK [ReviewAnalysisStack](infra/stack/review-analysis-stack.ts) just deploy QuickSight role only for QuickSight. So we have to set up QuickSight DataSource/Analysis/Dashboard manually.
+Our CDK [ReviewAnalysisStack](infra/stack/review-analysis-stack.ts) just deploy QuickSight role only for QuickSight. So we have to set up QuickSight's DataSource/Analysis/Dashboard manually.
 
 #### QuickSight Role setting
 
-Go to QuickSight console, and `Manage QuickSigh` menu, and then `Security & permissions`.
+Go to QuickSight console, and `Manage QuickSigh` menu, and then `Security & permissions`. Please change `QuickSight-managed role(default)` to an `existing role` which CDK created in [ReviewAnalysisStack](infra/stack/review-analysis-stack.ts) for us.
+
+where
+ [an existing role] is `OutputQuickSightRole` in `script/output/ReviewAnalysisStack.json`
 
 ![quicksight-setting](docs/asset/quicksight-setting.png)
 
 #### QuickSight Analysis
 
+QuickSight Sentiment Analysis
 ![quicksight-sentiment](docs/asset//quicksight-sentiment.png)
 
+QuickSight Syntax Analysis
 ![quicksight-syntax](docs/asset/quicksight-syntax.png)
 
+QuickSight Entities Analysis
 ![quicksight-entities](docs/asset/quicksight-entities.png)
 
 ## Clean up
