@@ -1,0 +1,35 @@
+# https://aws.plainenglish.io/postman-automate-generate-amazon-cognito-token-11c0d20af21c
+
+var clientId = pm.environment.get("cognitoClientId");
+var username = pm.environment.get("cognitoUserName");
+var password = pm.environment.get("cognitoUserPassword");
+var region = pm.environment.get("cognitoRegion");
+
+pm.sendRequest({
+    url: "https://cognito-idp." + region + ".amazonaws.com/",
+    method: 'POST',
+    header: {
+            'X-Amz-Target':   'AWSCognitoIdentityProviderService.InitiateAuth',
+            'Content-Type': 'application/x-amz-json-1.1'
+            },
+    body: {
+            mode: 'raw',
+            raw: JSON.stringify({
+                        "AuthParameters": {
+                        "USERNAME": username,
+                        "PASSWORD": password,
+                        },
+                        "AuthFlow": "USER_PASSWORD_AUTH",
+                        "ClientId": clientId
+            }),
+            options: {
+                raw: {
+                    language: 'json'
+                }
+            }
+        }}, 
+    function (error, response) {
+        console.log(response.json());
+        pm.environment.set("cognitoAccessToken", response.json().AuthenticationResult.AccessToken);
+        pm.environment.set("cognitoIdToken", response.json().AuthenticationResult.IdToken);
+});

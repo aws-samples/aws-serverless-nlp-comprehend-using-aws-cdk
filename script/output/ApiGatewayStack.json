@@ -1,0 +1,8 @@
+{
+  "ReviewServiceDev-ApiGatewayStack": {
+    "OutputUserPoolClientId": "...",
+    "OutputUserPoolId": "...",
+    "apigatewaycognitolambdaLambdaRestApiEndpoint79C076C2": "https://....execute-api.....amazonaws.com/prod/",
+    "OutputRestApiUrl": "https://....execute-api.....amazonaws.com/prod/"
+  }
+}

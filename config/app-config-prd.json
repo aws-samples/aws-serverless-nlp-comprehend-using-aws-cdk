@@ -1,0 +1,116 @@
+{
+    "Project": {
+        "Name": "ReviewService",
+        "Stage": "Prd",
+        "Account": "1111********",
+        "Region": "us-west-2",
+        "Profile": "cdk-v2"
+    },
+
+    "Global": {
+        "CdkNagEnable": false
+    },
+
+    "Stack": {
+        "AllInOne": {
+            "Name": "AllInOneStack",
+
+            "Props": {
+                "ApiGatewayName": "ReviewApis",
+                
+                "ReviewBackendLambdaName": "ReviewBackend",
+                "ReviewHistoryTableName": "ReviewHistoryTable",
+                
+                "ReviewAnalysisLambdaName": "ReviewAnalysis",
+                "ReviewEntitiesTableName": "ReviewEntitiesTable",
+                "ReviewSyntaxTableName": "ReviewSyntaxTable",
+                "TemplateFile": "infra/stack/AthenaDynamoDBConnector.yaml"
+            }
+            
+        },
+        "ReviewBackend": {
+            "Name": "ReviewBackendStack",
+
+            "LambdaConfig": {
+                "LambdaFuncName": "BackendFunc",
+                "LambdaFuncMemory": 128,
+                "LambdaFuncCode": "codes/lambda/review-backend/src",
+                "LambdaFuncHandler": "handler.handle"
+            },
+
+            "DdbConfig": {
+                "DdbTableName": "ReviewHistoryTable",
+                "DdbTablePartitionKey": "ProductId",
+                "DdbTableSortKey": "ReviewId"
+            }
+        },
+        "ApiGateway": {
+            "Name": "ApiGatewayStack",
+
+            "ApiConfig": {
+                "ApiGatewayName": "ReviewApis",
+                "ResourceMapping": [
+                    {
+                        "ResourceName": "review",
+                        "LambdaFuncName": "BackendFunc",
+                        "Methods": ["POST"]
+                    }
+                ]
+            },
+
+            "CognitoConfig": {
+                "CognitoUserPoolName": "ReviewUserPool"
+            },
+
+            "WafConfig": {
+                "WebAclName": "Waf",
+                "WafAwsManagedRules": [
+                    "AWSManagedRulesCommonRuleSet"
+                ]
+            }
+        },
+        "ReviewAnalysis": {
+            "Name": "ReviewAnalysisStack",
+
+            "LambdaConfig": {
+                "LambdaFuncName": "AnalysisFunc",
+                "LambdaFuncMemory": 128,
+                "LambdaFuncCode": "codes/lambda/review-analysis/src",
+                "LambdaFuncHandler": "handler.handle",
+                "LambdaFuncBatch": 10,
+                "LambdaFuncWindow": 1,
+                "StreamBatchSize": "10"
+            },
+
+            "KinesisConfig": {
+                "KinesisStreamName": "Stream",
+                "KinesisFireHoseName": "Hose",
+                "KinesisBucketName": "kinesis"
+            },
+
+            "GlueConfig": {
+                "GlueDatabaseName": "Analysis-Database",
+                "GlueTableName": "Comprehend-Table"
+            },
+
+            "AthenaConfig": {
+                "AtheanGroupName": "Group",
+                "AtheanBucketName": "athena",
+                "AtheanQuerySentiment": "sentiment-table",
+                "AtheanQueryEntities": "entities-table",
+                "AtheanQuerySyntax": "syntax-table"
+            }
+        },
+        "ReviewDashboard": {
+            "Name": "ReviewDashboardStack",
+
+            "DashboardName": "ReviewDashboard",
+
+            "SubscriptionEmails": ["kwonyul@amazon.com"],
+
+            "ApiGatewayOverallCallThreshold": 100,
+            "ApiGatewayError4xxCallThreshold": 20,
+            "ApiGatewayError5xxCallThreshold": 20
+        }
+    }
+}

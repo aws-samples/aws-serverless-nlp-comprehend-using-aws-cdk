@@ -1,0 +1,19 @@
+!jest.config.js
+node_modules
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# python
+**/*.pyc
+__pycache__
+.codes/**/__pycache__/
+.codes/**/.pytest_cache/
+
+# vsc
+**/.DS_Store
+.vscode/**
+
+# lambda layer for python
+codes/lambda/**/python

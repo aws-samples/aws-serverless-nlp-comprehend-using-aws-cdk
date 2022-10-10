@@ -1,0 +1,63 @@
+{
+    "Records": [
+        {
+            "eventID": "e1e5009db892e80162d3c41d123883e5",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "eu-central-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1662658061.0,
+                "Keys": {
+                    "id": {
+                        "S": "id-001"
+                    },
+                    "ts": {
+                        "S": "2022/09/08-17:27:41-8ad4907d2f9b11ed94c5b3eb21dfcac5"
+                    }
+                },
+                "NewImage": {
+                    "sentiment": {
+                        "M": {
+                            "SentimentScore": {
+                                "M": {
+                                    "Neutral": {
+                                        "N": "0.01862311363220215"
+                                    },
+                                    "Negative": {
+                                        "N": "0.97439044713974"
+                                    },
+                                    "Positive": {
+                                        "N": "0.003383016213774681"
+                                    },
+                                    "Mixed": {
+                                        "N": "0.0036034041550010443"
+                                    }
+                                }
+                            },
+                            "Sentiment": {
+                                "S": "NEGATIVE"
+                            }
+                        }
+                    },
+                    "review": {
+                        "S": "Written in old English. It was very hard to read as I had to think through most sentences to figure out what was being said."
+                    },
+                    "id": {
+                        "S": "id-001"
+                    },
+                    "timestamp": {
+                        "S": "2022/09/08-17:27:41"
+                    },
+                    "ts": {
+                        "S": "2022/09/08-17:27:41-8ad4907d2f9b11ed94c5b3eb21dfcac5"
+                    }
+                },
+                "SequenceNumber": "18527500000000010191845903",
+                "SizeBytes": 399,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:eu-central-1:1111********:table/ReviewServiceDev-ReviewHistoryTable/stream/2022-09-04T16:54:30.930"
+        }
+    ]
+}

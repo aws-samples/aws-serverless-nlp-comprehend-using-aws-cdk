@@ -1,0 +1,117 @@
+{
+    "resource": "/review",
+    "path": "/review",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate, br",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-ASN": "16509",
+        "CloudFront-Viewer-Country": "JP",
+        "content-type": "application/json",
+        "Host": "yjrqsueeif.execute-api.eu-central-1.amazonaws.com",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        "Via": "1.1 d83ceae2f2ed0c829779c7f585d230f0.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "Fncj0jToSGGctw452NkU_M75CwZuCPMjafT8wBbQ5-BV4HOg_xDQVw==",
+        "X-Amzn-Trace-Id": "Root=1-630c23ec-5a75df4e24d880977ab42d8c",
+        "X-Forwarded-For": "27.0.3.155, 130.176.189.75",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept": [
+            "*/*"
+        ],
+        "Accept-Encoding": [
+            "gzip, deflate, br"
+        ],
+        "CloudFront-Forwarded-Proto": [
+            "https"
+        ],
+        "CloudFront-Is-Desktop-Viewer": [
+            "true"
+        ],
+        "CloudFront-Is-Mobile-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-SmartTV-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-Tablet-Viewer": [
+            "false"
+        ],
+        "CloudFront-Viewer-ASN": [
+            "16509"
+        ],
+        "CloudFront-Viewer-Country": [
+            "JP"
+        ],
+        "content-type": [
+            "application/json"
+        ],
+        "Host": [
+            "yjrqsueeif.execute-api.eu-central-1.amazonaws.com"
+        ],
+        "User-Agent": [
+            "Thunder Client (https://www.thunderclient.com)"
+        ],
+        "Via": [
+            "1.1 d83ceae2f2ed0c829779c7f585d230f0.cloudfront.net (CloudFront)"
+        ],
+        "X-Amz-Cf-Id": [
+            "Fncj0jToSGGctw452NkU_M75CwZuCPMjafT8wBbQ5-BV4HOg_xDQVw=="
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-630c23ec-5a75df4e24d880977ab42d8c"
+        ],
+        "X-Forwarded-For": [
+            "27.0.3.155, 130.176.189.75"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "89qbsr",
+        "resourcePath": "/review",
+        "httpMethod": "POST",
+        "extendedRequestId": "XmqM-FtgFiAFuCw=",
+        "requestTime": "29/Aug/2022:02:26:52 +0000",
+        "path": "/prod/review",
+        "accountId": "111111111111",
+        "protocol": "HTTP/1.1",
+        "stage": "prod",
+        "domainPrefix": "yjrqsueeif",
+        "requestTimeEpoch": 1661740012465,
+        "requestId": "d9abb070-7d50-4085-867f-47bb040352f1",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "27.0.3.155",
+            "principalOrgId": null,
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "Thunder Client (https://www.thunderclient.com)",
+            "user": null
+        },
+        "domainName": "yjrqsueeif.execute-api.eu-central-1.amazonaws.com",
+        "apiId": "yjrqsueeif"
+    },
+    "body": "{\n  \"ProductId\": \"ts-1111\",\n  \"Review\": \"This is good.\"\n}",
+    "isBase64Encoded": false
+}

@@ -1,0 +1,36 @@
+{
+  "name": "aws-serverless-nlp-comprehend-using-aws-cdk",
+  "version": "0.1.0",
+  "bin": {
+    "aws-serverless-nlp-comprehend-using-aws-cdk": "infra/app-main.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.2",
+    "@types/node": "10.17.27",
+    "@types/prettier": "2.6.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "aws-cdk": "2.45.0",
+    "ts-node": "^10.8.1",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-solutions-constructs/aws-cognito-apigateway-lambda": "^2.25.0",
+    "@aws-solutions-constructs/aws-dynamodbstreams-lambda": "^2.25.0",
+    "@aws-solutions-constructs/aws-kinesisstreams-kinesisfirehose-s3": "^2.25.0",
+    "@aws-solutions-constructs/aws-lambda-dynamodb": "^2.25.0",
+    "@aws-solutions-constructs/aws-wafwebacl-apigateway": "^2.25.0",
+    "@aws-cdk/aws-glue-alpha": "^2.45.0-alpha.0",
+    "aws-cdk-lib": "2.45.0",
+    "cdk-nag": "^2.18.22",
+    "constructs": "^10.0.0",
+    "env-var": "6.3.0",
+    "source-map-support": "^0.5.21"
+  }
+}
