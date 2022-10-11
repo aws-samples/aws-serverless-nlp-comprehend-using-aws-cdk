@@ -41,6 +41,8 @@ export interface SecureS3BucketProps {
     versioned?: boolean;
     enforceSSL?: boolean;
     encryption?: s3.BucketEncryption,
+    
+    serverAccessLogsEnable?: boolean;
     serverAccessLogsBucket?: s3.IBucket;
     serverAccessLogsPrefix?: string;
 }
@@ -66,13 +68,15 @@ export class CommonGuardian implements ICommonGuardian {
     }
 
     createSecureS3Bucket(props: SecureS3BucketProps): s3.Bucket {
+        const logEnable = props.serverAccessLogsEnable == undefined ? true : props.serverAccessLogsEnable;
+
         return new s3.Bucket(this.props.construct, `${props.bucketId}-bucket`, {
             bucketName: props.bucketName ? props.bucketName : (props.baseName ? this.createS3BucketName(props.baseName) : undefined),
             versioned: props.versioned == undefined ? true : props.versioned,
             enforceSSL: props.enforceSSL == undefined ? true : props.enforceSSL,
             accessControl: s3.BucketAccessControl.LOG_DELIVERY_WRITE,
-            serverAccessLogsPrefix: props.serverAccessLogsPrefix == undefined ? 'access-logs' : props.serverAccessLogsPrefix,
-            serverAccessLogsBucket: props.serverAccessLogsBucket,
+            serverAccessLogsPrefix: logEnable ? (props.serverAccessLogsPrefix == undefined ? 'access-logs' : props.serverAccessLogsPrefix) : undefined,
+            serverAccessLogsBucket: logEnable ? props.serverAccessLogsBucket : undefined,
             blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
             encryption: props.encryption == undefined ? s3.BucketEncryption.S3_MANAGED : props.encryption,
         });
