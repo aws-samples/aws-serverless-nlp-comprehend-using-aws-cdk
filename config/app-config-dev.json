@@ -2,9 +2,9 @@
     "Project": {
         "Name": "ReviewService",
         "Stage": "Dev",
-        "Account": "1111********",
-        "Region": "us-east-1",
-        "Profile": "cdk-v2"
+        "Account": "your-account-number",
+        "Region": "your-region-name",
+        "Profile": "your-profile-name"
     },
 
     "Global": {
@@ -106,7 +106,7 @@
 
             "DashboardName": "ReviewDashboard",
 
-            "SubscriptionEmails": ["kwonyul@amazon.com"],
+            "SubscriptionEmails": ["your-email-address"],
 
             "ApiGatewayOverallCallThreshold": 100,
             "ApiGatewayError4xxCallThreshold": 20,
