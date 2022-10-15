@@ -13,7 +13,7 @@ PROJECT_PREFIX=$PROJECT_NAME$PROJECT_STAGE
 echo ==--------ConfigInfo---------==
 echo $APP_CONFIG
 echo $PROJECT_PREFIX
-echo $ACCOUNT
+# echo $ACCOUNT
 echo $REGION
 echo $PROFILE_NAME
 if [ -z "$PROFILE_NAME" ]; then

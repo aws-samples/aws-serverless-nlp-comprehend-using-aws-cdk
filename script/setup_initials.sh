@@ -17,7 +17,7 @@ PROFILE_NAME=$(cat $APP_CONFIG | jq -r '.Project.Profile') #ex> cdk-demo
 
 echo ==--------ConfigInfo---------==
 echo $APP_CONFIG
-echo $ACCOUNT
+# echo $ACCOUNT
 echo $REGION
 echo $PROFILE_NAME
 if [ -z "$PROFILE_NAME" ]; then
