@@ -27,7 +27,7 @@
     "@aws-solutions-constructs/aws-lambda-dynamodb": "^2.25.0",
     "@aws-solutions-constructs/aws-wafwebacl-apigateway": "^2.25.0",
     "@aws-cdk/aws-glue-alpha": "^2.45.0-alpha.0",
-    "aws-cdk-lib": "2.45.0",
+    "aws-cdk-lib": "2.80.0",
     "cdk-nag": "^2.18.22",
     "constructs": "^10.0.0",
     "env-var": "6.3.0",
