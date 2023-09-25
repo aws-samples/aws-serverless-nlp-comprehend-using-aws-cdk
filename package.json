@@ -1,5 +1,5 @@
 {
-  "name": "aws-serverless-nlp-comprehend-using-aws-cdk",
+  "name": "@aws-samples/aws-serverless-nlp-comprehend-using-aws-cdk",
   "version": "0.1.0",
   "bin": {
     "aws-serverless-nlp-comprehend-using-aws-cdk": "infra/app-main.js"
